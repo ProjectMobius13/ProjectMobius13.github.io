@@ -1,145 +1,160 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PONY.SYS</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+    :root {
+      --bg: #050200;
+      --panel: #100800;
+      --ink: #ffb000;
+      --ink-dim: #c47a00;
+      --glow: #ffbf40;
+      --ok: #ffd27a;
+      --danger: #ff6a2a;
+      --line: #7a4a00;
+    }
+    * { box-sizing: border-box; }
+    html { overflow-y: scroll; scrollbar-color: #c47a00 #090400; }
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: #090400; }
+    ::-webkit-scrollbar-thumb {
+      background: #7a4a00;
+      border: 1px solid #ffb000;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: #c47a00; }
+    ::-webkit-scrollbar-corner { background: #090400; }
+    html, body { min-height: 100%; }
+    body {
+      margin: 0;
+      font-family: "Share Tech Mono", ui-monospace, Menlo, Consolas, monospace;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.45;
+    }
+    body::before {
+      content: "";
+      pointer-events: none;
+      position: fixed; inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255,180,40,0.05), transparent 12%, transparent 88%, rgba(0,0,0,0.35)),
+        radial-gradient(ellipse at center, rgba(255,140,0,0.07), transparent 70%),
+        repeating-linear-gradient(0deg, rgba(0,0,0,0.22) 0 2px, transparent 2px 4px);
+      background-attachment: fixed;
+      z-index: 0;
+    }
+    header, main, footer { position: relative; z-index: 1; }
+    header { padding: 1rem 1rem .35rem; max-width: 42rem; margin: 0 auto; }
+    h1 {
+      font-size: 1.05rem;
+      margin: 0 0 .35rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1::before { content: "> "; }
+    p.sub { margin: 0; color: var(--ink-dim); font-size: .85rem; }
+    main { padding: .5rem 1rem 2rem; max-width: 42rem; margin: 0 auto; }
+    .boot {
+      margin: .9rem 0 1.1rem;
+      color: var(--ink-dim);
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .boot div { margin: .15rem 0; }
+    .boot .ok { color: var(--ok); }
+    .dir {
+      display: grid;
+      gap: .75rem;
+      margin: 0;
+    }
+    a.tile {
+      display: block;
+      text-decoration: none;
+      color: var(--ink);
+      background: rgba(16,8,0,.72);
+      border: 1px solid var(--ink);
+      border-radius: 0;
+      padding: 1rem 1rem .95rem;
+    }
+    a.tile:hover {
+      background: rgba(255,176,0,.12);
+      box-shadow: 0 0 18px rgba(255,176,0,.18);
+    }
+    a.tile:focus {
+      outline: none;
+      box-shadow: 0 0 0 1px var(--ink);
+    }
+    .tile-id {
+      display: block;
+      color: var(--ink-dim);
+      font-size: .72rem;
+      letter-spacing: .14em;
+      margin-bottom: .35rem;
+    }
+    .tile-name {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-shadow: 0 0 8px rgba(255,176,0,.45);
+      margin-bottom: .45rem;
+    }
+    .tile-job {
+      display: block;
+      color: var(--ink-dim);
+      font-size: .85rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .tile-go {
+      display: block;
+      margin-top: .75rem;
+      color: var(--ink);
+      font-size: .78rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    footer {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 0 1rem 1.5rem;
+      color: var(--ink-dim);
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    ::selection { background: var(--ink); color: #140800; }
+  </style>
+</head>
+<body>
+  <header class="">
+    <h1>PONY.SYS // DUSTY TOOLS</h1>
+    <p class="sub">A PM13 TOOLSET. ALL UPLOADED FILES REMAIN ON CLIENT DEVICE</p>
+  </header>
+  <main>
+    <div class="boot">
+      <div>BOOT // CLIENT SIDE ONLY</div>
+      <div class="ok">2 MODULES MOUNTED</div>
+    </div>
+    <nav class="dir" aria-label="Directory">
+      <a class="tile" href="https://projectmobius13.github.io/dusty-stamp/">
+        <span class="tile-id">01 // EXPORT DECK</span>
+        <span class="tile-name">DUSTY STAMP</span>
+        <span class="tile-job">Load Dust Town character exports. Edit bio information and batch apply outfits from one character to many.</span>
+        <span class="tile-go">RUN &gt; DUSTY STAMP</span>
+      </a>
+      <a class="tile" href="https://projectmobius13.github.io/dusty-combat/">
+        <span class="tile-id">02 // COMBAT DECK</span>
+        <span class="tile-name">DUSTY COMBAT</span>
+        <span class="tile-job">HP / turn-order tracker. Import Dust Town Character exports or add fighters by hand. Copy HP bars to paste into Dust Town chat.</span>
+        <span class="tile-go">RUN &gt; DUSTY COMBAT</span>
+      </a>
+    </nav>
+  </main>
+  <footer class="">PONY.SYS // DUSTY TOOLS</footer>
 
-    <!-- Custom PreHead code is injected here -->
-    
 
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name ="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta charset="utf-8"/>
-
-        <!-- Builtin injector for disabling cache -->
-        <meta http-equiv="pragma" content="no-cache"/>
-
-        <!-- Set the title bar of the page -->
-        <title>Fo:E Town HP Tracker</title>
-
-        <!-- Custom PreStyle code is injected here -->
-        
-
-        <!-- Set the background colour of the document -->
-        <style>
-            body {
-                background: #0;
-                color: #222222;
-                margin: 0px;
-                padding: 0px;
-                border: 0px;
-				-webkit-touch-callout:none;
-				-webkit-user-select:none;
-				-khtml-user-select:none;
-				-moz-user-select:none;
-				-ms-user-select:none;
-				user-select:none;outline:0;
-            }
-
-            canvas {
-                image-rendering: optimizeSpeed;
-                -webkit-interpolation-mode: nearest-neighbor;
-                -ms-touch-action: none;
-                touch-action: none;
-                margin: 0px;
-                padding: 0px;
-                border: 0px;
-				-webkit-touch-callout:none;
-				-webkit-user-select:none;
-				-khtml-user-select:none;
-				-moz-user-select:none;
-				-ms-user-select:none;
-				user-select:none;
-				outline:0;
-				-webkit-tap-highlight-color:rgba(255,255,255,0);
-            }
-            :-webkit-full-screen #canvas {
-                width: 100%;
-                height: 100%;
-            }
-            :-webkit-full-screen {
-                width: 100%;
-                height: 100%;
-            }
-            
-            /* Custom Runner Styles */
-            div.gm4html5_div_class {
-                margin: 0px;
-                padding: 0px;
-                border: 0px;
-            }
-            div.gm4html5_login {
-                padding: 20px;
-                position: absolute;
-                border: solid 2px #000000;
-                background-color: #404040;
-                color:#00ff00;
-                border-radius: 15px;
-                box-shadow: #101010 20px 20px 40px;
-            }
-            div.gm4html5_cancel_button {
-                float: right;
-            }
-            div.gm4html5_login_button {
-                float: left;
-            }
-            div.gm4html5_login_header {
-                text-align: center;
-            }
-			
-			.gm4html5_div_class {
-                background-color: #202020;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				height: 100vh;
-			}
-            /* END - Custom Runner Styles */
-            
-        </style>
-
-        <!-- Custom PostStyle code is injected here -->
-        
-
-        <!-- Builtin injector for injecting flurry analytics code -->
-        
-    </head>
-
-    <!-- Custom PostHead code is injected here -->
-    
-
-    <!-- Custom PreBody code is injected here -->
-    
-
-    <body>
-        <div class="gm4html5_div_class" id="gm4html5_div_id">
-            <script>
-				document.addEventListener('touchstart', e => {
-					e.preventDefault();
-				}, { passive: false })
-			</script>
-            <!-- Builtin injector for splash screen -->
-            
-
-            <!-- Create the canvas element the game draws to -->
-            <canvas id="canvas" width="480" height="640" >
-                <p>Your browser doesn't support HTML5 canvas.</p>
-            </canvas>
-        </div>
-
-        <!-- Run the game code -->
-        <script type="text/javascript" src="html5game/Ashes Battle Assistant.js?cachebust=579010544"></script>
-
-        <!-- Builtin injector for injecting runner path -->
-        
-
-        <script>window.onload = GameMaker_Init;</script>
-
-        <!-- Builtin injector for injecting google analytics code -->
-        
-
-    </body>
-
-    <!-- Custom PostBody code is injected here -->
-    
-</html>
+</body></html>
